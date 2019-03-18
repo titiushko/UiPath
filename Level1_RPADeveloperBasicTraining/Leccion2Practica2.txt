@@ -1,0 +1,10 @@
+Crear cuatro variables de tipo GenericValue en una secuencia
+A con el valor “123”
+B con el valor “456”
+C con el valor 123
+D con el valor 456
+Imprimir en la consola varias operaciones con ellas y mostrar el resultado
+A + B
+C + D
+A + C
+C + A

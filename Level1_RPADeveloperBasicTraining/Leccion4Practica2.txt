@@ -1,0 +1,6 @@
+Crear una secuencia que haga lo siguiente:
+Solicitar al usuario que introduzca el nombre de una ciudad.
+Abrir un navegador web (se recomienda utilizar Internet Explorer) y abrir la página google.com.
+Escribir en la barra de búsqueda ‘weather in <city>’ y ejecutar una búsqueda.
+Extraer los datos de temperatura.
+Mostrar la temperatura en un Message Box.

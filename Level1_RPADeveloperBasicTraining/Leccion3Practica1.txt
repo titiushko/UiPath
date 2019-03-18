@@ -1,0 +1,15 @@
+Generador de sobrenombres
+
+
+Crear una secuencia que haga lo siguiente:
+
+- Leer un archivo denominado ‘Members Only.csv’ y guardar la información en una tabla de datos.
+
+- Filtrar la tabla de datos en función de la pertenencia a un club.
+
+- Crear un sobrenombre para cada miembro de un club utilizando las 3 primeras letras del nombre de pila, todas en mayúscula, y las 3 primeras letras del apellido, todas en minúscula.
+
+- Escribir todos los sobrenombres generados en el panel Output.
+
+ 
+Descargue el archivo de recursos .zip y extraiga el archivo Excel.

@@ -1,0 +1,7 @@
+Crear una secuencia que realice la siguiente automatización del Bloc de notas:
+Solicitar al usuario el texto que vaya a escribir.
+Solicitar al usuario el nombre del archivo para guardarlo.
+Abrir el Bloc de notas.
+Escribir el texto indicado por el usuario.
+Cambiar el estilo de fuente a negrita y su tamaño a 16.
+Navegar a Guardar como para guardar el archivo con el nombre indicado por el usuario.

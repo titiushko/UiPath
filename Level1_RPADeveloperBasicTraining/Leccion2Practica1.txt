@@ -1,0 +1,12 @@
+Crear un diagrama de flujo que ejecute las acciones siguientes:
+Empezar planteando al usuario una pregunta de tipo matemático (p. ej., la ecuación 1+1=2) en un Message Box con opciones Yes/No y capturar la respuesta del usuario:
+
+A. Si el usuario responde Yes (que es la respuesta True (verdadero) en este caso):
+
+Abrir el programa Notepad.exe
+Adjuntarse a la ventana de Notepad.exe
+Después de adjuntarse a la ventana, escribir en ella Correct.
+B. Si el usuario elige No (que es la respuesta False (falso):
+
+Realizar la misma serie de acciones que en la rama True. Pero, en lugar de escribir Correct, debe escribir Incorrect en el Bloc de notas.
+Para finalizar, se cierra la aplicación Bloc de notas.
