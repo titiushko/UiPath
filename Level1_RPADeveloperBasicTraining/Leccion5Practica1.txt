@@ -1,0 +1,4 @@
+Crear una breve secuencia que haga lo siguiente:
+Adjuntarse a una ventana del navegador abierta en esta página
+Extraer todos los nombres y los precios hasta llegar a 100 artículos
+Escribir los datos extraídos en una hoja de cálculo Excel nueva
