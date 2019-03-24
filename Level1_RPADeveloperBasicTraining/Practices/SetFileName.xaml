@@ -129,7 +129,7 @@
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>
-    <sads:DebugSymbol.Symbol>d0RDOlxVc2Vyc1x0dmlydVxEb2N1bWVudHNcVWlQYXRoXFRyYW5zYWN0aW9uYWxQcm9jZXNzXEhlbGxvV29ybGQueGFtbBNHA4UBDwIBAU0JURoCARdTO1N7AgEUXT9dggECARFxFXH+AQIBDmAVYIcCAgEKYxlqIgIBBVYRVvwBAgECTZABTaMBAgEbTzVPQAIBGU2qAU2/AQIBGHFRcVoCARBxqQFx7AECAQ9gUWBdAgENYKwBYPUBAgELaERoTwIBCGVFZU8CAQZWTVZWAgEEVqUBVuoBAgED</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d15GOlx0aXRvLm1pZ3VlbFxyZXBvc2l0b3Jpb3NcVWlQYXRoXExldmVsMV9SUEFEZXZlbG9wZXJCYXNpY1RyYWluaW5nXFByYWN0aWNlc1xTZXRGaWxlTmFtZS54YW1sE0cDhQEPAgEBTQlRGgIBF1M7U3sCARRdP12CAQIBEXEVcf4BAgEOYBVghwICAQpjGWoiAgEFVhFW/AECAQJNkAFNowECARtPNU9AAgEZTaoBTb8BAgEYcVFxWgIBEHGpAXHsAQIBD2BRYF0CAQ1grAFg9QECAQtoRGhPAgEIZUVlTwIBBlZNVlYCAQRWpQFW6gECAQM=</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -173,7 +173,7 @@
       <sap2010:ViewStateData Id="FlowStep_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">69.5,435.5</av:Point>
+            <av:Point x:Key="ShapeLocation">49.5,435.5</av:Point>
             <av:Size x:Key="ShapeSize">242,60</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -181,9 +181,9 @@
       <sap2010:ViewStateData Id="FlowStep_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">90.5,334.5</av:Point>
+            <av:Point x:Key="ShapeLocation">70.5,334.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">190.5,385.5 190.5,435.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">170.5,385.5 170.5,435.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -209,7 +209,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <av:Point x:Key="ShapeLocation">340.5,316.5</av:Point>
             <av:Size x:Key="ShapeSize">79,87</av:Size>
-            <av:PointCollection x:Key="TrueConnector">340.5,360 290.5,360</av:PointCollection>
+            <av:PointCollection x:Key="TrueConnector">340.5,360 270.5,360</av:PointCollection>
             <av:PointCollection x:Key="FalseConnector">419.5,360 469.5,360</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>

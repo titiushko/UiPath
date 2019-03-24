@@ -1,7 +1,7 @@
 {
   "name": "Level1_RPADeveloperBasicTraining",
   "description": "Nivel 1 - Desarrollador de RPA formación básica",
-  "main": "Main.xaml",
+  "main": "Practices\\Main.xaml",
   "dependencies": {
     "UiPath.UIAutomation.Activities": "[19.2.0]",
     "UiPath.System.Activities": "[19.2.0]",
