@@ -1,0 +1,60 @@
+Ejercicio práctico
+Automatizar la pantalla de ExpenseIT
+Descargue la aplicación ExpenseIt y añada un nuevo gasto utilizando solo imágenes/texto y combinaciones de teclas.
+
+Ejercicio práctico: itinerario
+Primero, verifique que está instalado el motor de Microsoft OCR.
+
+ 
+
+
+
+Este ejercicio puede parecer duro debido a las restricciones, pero pronto verá que el grabador Citrix de Studio lo hace muy simple.
+
+Descargue y abra el ejecutable ExpenseIt.
+ Navegue al botón Recorder del menú de navegación y seleccione el grabador Citrix.
+
+
+La escritura en campos de formulario como los de ExpenseIt se puede realizar con reconocimiento de imágenes o texto. En el primer campo, utilicemos Click Text.
+
+Seleccione Click Text y seleccione un recuadro alrededor de la etiqueta Email:.
+
+
+Cuando aparezca el Screen Scraping Wizard, navegue hasta el campo Search Text y escriba Email.
+Haga clic en Set mouse position y después en Indicate, y haga clic dentro del cuadro de texto que está junto a la etiqueta email.
+Ajuste el motor de OCR a Microsoft OCR y haga clic en Continue.
+En el menú del grabador, seleccione Type.
+Utilice toda la ventana de ExpenseIt como selección de elemento.
+Escriba: training@uipath.com
+Compruebe el campo Empty y pulse Intro
+En el campo Employee Number, utilicemos reconocimiento de imágenes.
+
+En el menú del grabador, seleccione Click Image.
+Seleccione un recuadro ajustado alrededor de la etiqueta Employee Number y haga clic en Indicate.
+Haga clic en algún punto dentro del campo Employee Number.
+Seleccione Type y repita los pasos anteriores.
+El texto puede ser algo como esto: 45321.
+En el campo Cost Center, utilice reconocimiento de imágenes como en el Employee Number para hacer clic en el menú desplegable y abrirlo.
+
+A continuación, seleccione Click Text y utilice toda la ventana como elemento de selección (simulando un entorno Citrix).
+En el campo Search Text , escriba: Marketing.
+Ajuste el motor de OCR a Google en este caso.
+En Employees, vuelva a seleccionar Click Text.
+Vuelva a utilizar toda la ventana como área de selección.
+En el campo Text to be found, escriba: CSG.
+Utilice Microsoft OCR en este caso.
+Siga los mismos pasos para seleccionar un nombre de empleado, esta vez seleccionando el texto: Amy.
+Seleccione Click Image y seleccione un área alrededor del texto del botón Create Expense Report.
+Todas las entradas de texto se pueden sustituir por variables si se requiere más flexibilidad. El flujo de trabajo final debería quedar así:
+
+
+
+
+
+
+
+
+
+
+
+
