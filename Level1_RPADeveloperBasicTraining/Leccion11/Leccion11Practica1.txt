@@ -1,0 +1,70 @@
+Sea un documento PDF nativo con información dinámica como el que se adjunta. Utilizar una automatización con Anchor Base para extraer el valor del campo DATE y el nombre del valor del campo BILL TO de la factura.
+ 
+
+Adjunte la ventana del lector de PDF utilizando una actividad Attach Window.
+Arrastre un contenedor Anchor Base dentro del bloque Do:
+En el lado izquierdo, arrastre una actividad Find Element para seleccionar nuestro anclaje.
+Haga clic en Indicate on screen.
+Haga clic en la etiqueta DATE que está junto a la fecha que intentamos extraer.
+En el lado derecho, arrastre una actividad Get Text para leer el valor que deseamos.
+Haga clic en Indicate on screen.
+Haga clic en el verdadero campo de la fecha que intentamos extraer (p. ej., 6/6/2016).
+Observe que el Selector solo contiene una etiqueta con un atributo type.
+En la propiedad Output, cree una variable para guardar el valor leído.
+En las propiedades del contenedor Anchor Base, asigne en AnchorPosition el valor Left o Auto.
+ 
+
+
+
+En la segunda lectura basada en anclaje, utilizaremos un método similar.
+
+Arrastre un contenedor Anchor Base dentro del bloque Do:
+En el lado izquierdo, arrastre una actividad Find Element para seleccionar nuestro anclaje.
+Haga clic en Indicate on screen.
+Haga clic en la etiqueta BILL TO que está encima de la dirección que intentamos extraer.
+En el lado derecho, arrastre una actividad Get Text para leer el valor que deseamos.
+Haga clic en Indicate on screen.
+Haga clic en el nombre que intentamos extraer (p. ej., IDES AG Frankfurt).
+Tenga en cuenta que el Selector solo contiene una etiqueta con un atributo role.
+En la propiedad Output, cree una variable para guardar el valor leído.
+En el contenedor Anchor Base, asigne en la propiedad AnchorPosition el valor Top o Auto.
+
+
+ITINERARIO
+
+Dependiendo del servidor de correo electrónico/cliente que estemos utilizando, serán distintas las propiedades que es necesario definir, pero la lógica y las actividades serán muy similares. Cuando en este itinerario se utiliza Get Outlook Mail Messages, se refiere casi siempre a Get XXX Mail Messages, donde XXX puede ser POP3, IMAP, Exchange, Outlook.
+Empiece arrastrando una actividad Get Outlook Mail Messages, configure la cuenta que debe leer (si se necesita una que no sea la cuenta predeterminada de Outlook), la carpeta de donde leer y cree una variable en donde se guardarán los mensajes de correo electrónico. Asigne a esta variable el nombre emails
+
+ 
+
+Utilice también una actividad Read Range para leer las “reglas” del archivo email rules.xlsx proporcionado como entrada. Guarde el resultado en una DataTable con el nombre mailRules
+
+
+
+Tenga en cuenta que la variable emails, creada en la propiedad Output de Get Outlook Mail Message, es de tipo List<MailMessage>
+
+La idea es aplicar las reglas a cada mensaje, así que cree una iteración en esta lista emails utilizando una actividad For each. Como la lista que hay que recorrer está formada por objetos MailMessage, cada uno de los elementos de la iteración será de tipo MailMessage y es necesario indicarlo de forma explícita.
+
+Haga clic en la actividad For each y, en la propiedad TypeArgument, seleccione entre las opciones de la lista el valor System.Net.MailMessage.
+
+ 
+
+
+
+ 
+
+Si esta opción no está en la lista, haga clic en Browse for Types y busque System.Net.Mail.MailMessage en la ventana de diálogo que aparece.
+
+Ahora es necesario recorrer todas las reglas y ver si el mensaje que estamos analizando cumple alguno de los criterios. Esta vez tenemos un objeto DataTable así que lo recorreremos con más facilidad con una actividad For each row. Solo es necesario especificar el objeto por recorrer que en este caso es mailRules
+
+ 
+
+Ahora es necesario comprobar si se aplican las reglas sobre el asunto. Como tenemos acceso al correo electrónico actual en la variable del elemento (renombrado como mail) creada automáticamente y esta variable es de tipo MailMessage, podemos acceder a todas las propiedades específicas del correo electrónico. Hay que ver si la propiedad Sender.Address contiene la columna “From” de la regla que estamos comprobando
+
+Si esto es verdadero, utilice un Move Outlook Mail Message y mueva el mensaje actual a la carpeta indicada en la fila actual, en la columna “Folder”
+
+ 
+
+
+
+También es necesario añadir un punto de interrupción en esta secuencia, para no seguir verificando las demás reglas cuando ya se ha aplicado una y el mensaje ya se ha movido a otra carpeta.

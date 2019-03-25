@@ -1,0 +1,24 @@
+Crear un flujo de trabajo que haga lo siguiente:
+Leer la página 6 del archivo "Session 11 - exercise 2 - UiPathOrchestratorAzureInstallationGuide2016.1" (en los datos adjuntos)
+Leer la página 2 del archivo "Session 11 - exercise 2 - ScannedDoc" (en los datos adjuntos)
+Enviar un correo electrónico con ambos documentos adjuntos con el texto del punto 1 y el texto del punto 2 en el cuerpo del mensaje
+
+ITINERARIO
+
+El primer documento del que hay que extraer texto es un pdf nativo, (el texto se puede seleccionar, es probable que el documento se haya creado a partir de un Word, etc.) así que se puede utilizar la actividad específica para este caso, Read PDF Text
+Haga clic en los puntos junto a la propiedad File Name y vaya a la ubicación donde haya guardado el documento Orchestrator Installation Guide
+Cambie el valor de la propiedad Range de “All” a 6, para leer solo la página 6 del documento
+Cree una variable en Output para guardar el texto recuperado para después
+ 
+
+El segundo documento del que hay que extraer texto es un pdf digitalizado (todo son imágenes, no es posible seleccionar ningún elemento, etc.) así que se puede utilizar la actividad específica para este caso, Read PDF With OCR
+
+ 
+
+Haga clic en los puntos junto a la propiedad File Name y vaya a la ubicación donde haya guardado el documento “Scanned.pdf”
+Cambie el valor de la propiedad Range de “All” a 2, para leer solo la página 2 del documento
+Cree una variable en Output para guardar el texto recuperado para después
+añada una actividad Send Outlook Mail Message (puede ser cualquier Send XXX Mail Message)
+Defina la propiedad To
+Defina la propiedad Subject
+Defina la propiedad Body con las variables concatenadas que guardan los fragmentos de texto leídos de los dos documentos installationPDFText + invoicePDFText

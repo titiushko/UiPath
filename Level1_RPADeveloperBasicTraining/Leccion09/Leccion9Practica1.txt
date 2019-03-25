@@ -1,0 +1,143 @@
+Realizar la suma de dos columnas de 3 maneras
+ 
+Crear un flujo de trabajo que sume los valores de la columna A con los valores de la columna B y escriba el resultado en la columna C de distintas maneras:
+ 
+
+Manteniendo el excel abierto y escribiendo los resultados en tiempo real, fila a fila para que veamos los cambios
+Manteniendo el excel cerrado, asigando los valores de la columna en la DataTable de memoria y sumando toda la tabla en el archivo excel de una vez, al final
+Calculando la suma mediante fórmulas de excel
+
+
+ITINERARIO
+Parte A:
+La práctica totalidad de las actividades por realizar deben estar contenidas en un Excel Application Scope. El primer paso después de crear uno es leer el archivo Excel.
+Busque y añada un Excel Application Scope en el área principal
+            o       Escriba la ruta de acceso completa al cuaderno de trabajo de Sample Columns.xlsx en el parámetro Workbook Path
+
+            o       Verifique que la opción ‘Visible’ esté seleccionada para que las actividades se ejecuten igual que por un humano
+
+Busque y añada una actividad Read Range en el contenedor Do de Excel Application Scope.
+            o       Defina el valor de Range a “” para leer toda la hoja
+
+            o       En el parámetro de salida, utilice la combinación de teclas Ctrl+K para crear un DataTable con el nombre inputsTable
+
+Por el momento, el flujo de trabajo debería quedar así:
+
+
+A continuación, utilice una actividad For Each Row y sume las dos primeras columnas.
+
+Busque y añada una actividad For Each Row debajo de la actividad Read Range
+          o         Indique que recorra en bucle la DataTable creada antes, inputsTable
+
+Cree una variable Int32 con el nombre rowIndex para guardar la fila donde debe escribir después
+Busque y añada una actividad Assign dentro de la sección Body de la actividad For Each Row
+          o         Asigne inputsTable.Rows.IndexOf(row) +1 a rowIndex
+
+                   ▪           Esto define el valor de rowIndex para que coincida con la fila actual en el bucle
+
+                   ▪           El + 1 sirve para que el Rows de Excel empiece a contar en 1, porque las DataTables empiezan en el índice 0 y es necesario compensar esta diferencia
+
+Debajo de esta actividad, busque y añada dos actividades Get Row Item
+          o         En la primera, defina el índice de la columna al valor 0 y la fila a row (la variable temporal del bucle)
+
+          o         En el parámetro de salida, utilice la combinación de teclas Ctrl+K para crear una variable con el nombre valueA
+
+          o         En la segunda, defina el índice de la columna al valor 1 y la fila a row
+
+          o         En el parámetro de salida, utilice la combinación de teclas Ctrl+K para crear una variable con el nombre valueB
+
+Busque y añada una actividad Assign por debajo
+          o         Asigne valueA + valueB a valueC (utilice la combinación de teclas para crear variables también aquí)
+
+Busque y añada una actividad Write Value a continuación
+          o         Mantenga la hoja como Sheet1
+
+          o         Defina el intervalo (la ubicación de la hoja donde va a escribir) como “C” + rowIndex.ToString
+
+                   ▪           Al recorrer el bucle, esto evaluará el valor de “C1”, después de “C2” y así hacia abajo por la tercera columna
+
+          o         Defina el valor a valueC
+
+El flujo de trabajo final debería quedar así:
+
+
+
+
+Parte B:
+En esta parte, el archivo se leerá sin un Excel Application Scope porque la automatización se realizará internamente.
+Busque y añada una actividad Read Range a la secuencia principal.
+           o        Defina WorkBook Path según la ruta de acceso completa del cuaderno de trabajo Sample Columns.xlsx
+
+            o       Defina el valor de Range a “” para leer toda la hoja
+
+            o       En el parámetro de salida, utilice la combinación de teclas Ctrl+K para crear un DataTable con el nombre inputsTable
+
+Busque y añada una actividad Add Data Column por debajo
+           o        Asigne a ColumnName el valor “C”
+
+           o        Defina el parámetro DataTable como inputsTable
+
+           o        Defina el tipo de argumento como Object  
+
+
+
+Busque y añada una actividad For Each Row debajo de esa
+           o        Defina la actividad para que recorra en bucle inputsTable
+
+Busque y añada dos actividades Assign (las variables necesarias se deben crear utilizando la combinación de teclas):
+           o        La primera asigna row(0).ToString a valueA
+
+           o        La segunda asigna row(1).ToString a valueB
+
+                    ▪           Esto convierte los valores del objeto Row en valores String más fáciles de utilizar
+
+Busque y añada otra actividad Assign que asigne a row(2) este valor:
+           o       Integer.Parse(valueA) + Integer.Parse(valueB)
+
+           o        Esta instrucción convierte los valores String en valores Integer utilizando un método de Visual Basic y después los suma
+
+Para finalizar, busque y añada una actividad Write Range debajo y fuera de la actividad For Each para escribir la DataTable manipulada en una nueva hoja.
+           o        Defina la DataTable como inputsTable
+
+           o        El nombre de la hoja debe mantenerse como Sheet1
+
+           o        La celda de inicio se debe dejar en blanco, así “”
+
+           o        Defina Workbook Path según la ruta de acceso deseada que finaliza con el nombre del archivo Sample Columns - Completed.xlsx
+
+                   ▪   UiPath creará un archivo si este no existe todavía
+
+El resto del flujo de trabajo completo debería quedar así:
+ 
+
+
+
+Parte C:
+Esta parte se basa principalmente en el uso de un comando de Excel para sumar las filas necesarias. Debe estar totalmente incluido dentro de un Excel Application Scope.
+Busque y añada un Excel Application Scope en la secuencia principal
+o        Como siempre, defina la ruta de acceso de Sample Columns.xlsx
+
+o        Active la opción Visibility marcando la casilla
+
+Busque y añada una actividad Read Range
+o        La hoja debe mantenerse como Sheet1
+
+o        Defina la salida hacia una DataTable nueva con el nombre inputsTable
+
+Cuente cuántas filas hay para poder aplicar las fórmulas a la sección correcta de la hoja.
+
+Busque y añada una actividad Assign debajo de la actividad Read Range
+          o         Asigne inputsTable.Rows.Count a una variable Generic nueva con el nombre rowsCount
+
+Busque y añada una actividad Write Cell, se debe configurar para:
+          o         Escribir en Sheet1
+
+          o         Escribir en el intervalo desde “C1:C” + rowsCount
+
+                   ▪           Esto define el intervalo de filas de la columna C donde va a escribir la fórmula
+
+          o         Escribir el valor “=SUM(A1,B1)”
+
+                   ▪           En Excel, este valor recorrerá automáticamente las filas hacia abajo
+
+El flujo de trabajo final debería quedar así:

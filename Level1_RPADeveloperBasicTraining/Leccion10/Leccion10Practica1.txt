@@ -1,0 +1,30 @@
+Sea un documento PDF nativo con información dinámica como el que se adjunta. Utilizar una automatización con Anchor Base para extraer el valor del campo DATE y el nombre del valor del campo BILL TO de la factura.
+ 
+
+Adjunte la ventana del lector de PDF utilizando una actividad Attach Window.
+Arrastre un contenedor Anchor Base dentro del bloque Do:
+En el lado izquierdo, arrastre una actividad Find Element para seleccionar nuestro anclaje.
+Haga clic en Indicate on screen.
+Haga clic en la etiqueta DATE que está junto a la fecha que intentamos extraer.
+En el lado derecho, arrastre una actividad Get Text para leer el valor que deseamos.
+Haga clic en Indicate on screen.
+Haga clic en el verdadero campo de la fecha que intentamos extraer (p. ej., 6/6/2016).
+Observe que el Selector solo contiene una etiqueta con un atributo type.
+En la propiedad Output, cree una variable para guardar el valor leído.
+En las propiedades del contenedor Anchor Base, asigne en AnchorPosition el valor Left o Auto.
+ 
+
+
+
+En la segunda lectura basada en anclaje, utilizaremos un método similar.
+
+Arrastre un contenedor Anchor Base dentro del bloque Do:
+En el lado izquierdo, arrastre una actividad Find Element para seleccionar nuestro anclaje.
+Haga clic en Indicate on screen.
+Haga clic en la etiqueta BILL TO que está encima de la dirección que intentamos extraer.
+En el lado derecho, arrastre una actividad Get Text para leer el valor que deseamos.
+Haga clic en Indicate on screen.
+Haga clic en el nombre que intentamos extraer (p. ej., IDES AG Frankfurt).
+Tenga en cuenta que el Selector solo contiene una etiqueta con un atributo role.
+En la propiedad Output, cree una variable para guardar el valor leído.
+En el contenedor Anchor Base, asigne en la propiedad AnchorPosition el valor Top o Auto.

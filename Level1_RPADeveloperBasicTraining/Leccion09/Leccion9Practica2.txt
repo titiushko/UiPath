@@ -1,0 +1,83 @@
+Combinar varias hojas en una sola
+ 
+
+A.    Cree un flujo de trabajo que añada los datos de Sheet1, Sheet2, Sheet3... SheetN de un archivo Excel en un archivo nuevo con el nombre “Consolidated.xlsx”
+Todas las hojas tienen los mismos encabezados de columna: Name, Surname e Id
+La hoja final debe mantener los encabezados. Supongamos que todas las hojas tienen las mismas columnas
+N es una variable que se puede definir con el número de hojas
+ 
+
+B. A partir de “Consolidated.xlsx”, elimine todas las filas con un valor de “ID” inferior a 10 y visualice todos los datos ordenados en un Message Box.
+ 
+
+ITINERARIO
+Como el flujo de trabajo tiene dos partes, organice el proyecto como un diagrama de flujo.
+
+A.Primero cree un bucle While que contendrá toda la automatización. Esto garantizará el indexamiento de todas las hojas hasta el final.
+Busque y añada una actividad While en el contenedor principal
+Cree una variable Int32 con el nombre Index
+              o     Defina su valor predeterminado a 1
+
+Cree una variable Int32 con el nombre N
+              o     Defina su valor predeterminado a 3 (se puede cambiar dependiendo del número de hojas)
+
+En las propiedades de la actividad While:
+              o     En el parámetro Condition, escriba: index <= N
+
+                            ▪             Esto garantiza que, mientras el índice sea inferior al valor que tenga definido N, la automatización seguirá añadiendo hojas
+
+Debería quedar así:
+
+
+ 
+
+             
+
+A continuación, es necesario añadir actividades que lean la hoja en cada iteración y la añadan a la hoja principal.
+
+Busque y añada una actividad Read Range en la sección Body de la actividad While
+o        Defina WorkBook Path según la ruta de acceso completa del cuaderno de trabajo Excel de muestra (descargado en el esquema del material anterior)
+
+o        Defina el nombre de la hoja como: “Sheet” + index.ToString
+
+▪        Esto asume que las hojas del cuaderno de trabajo tendrán los nombres Sheet1, Sheet2, …, etc.
+
+           o       En el parámetro de salida, utilice la combinación de teclas Ctrl+K para crear un DataTable con el nombre partialTable
+
+Si queremos que la hoja combinada tenga los datos de todas las hojas, tendremos que tratar la adición de los datos de la primera hoja por separado para poder añadir el conjunto completo con sus encabezados. Los datos de las demás hojas se deben añadir al final, sin añadir los encabezados de columna
+
+Busque y añada una actividad If debajo de la actividad Read Range
+               o   Defina el parámetro Condition como: Index = 1
+
+Busque y añada una actividad Write Range en la rama ‘Then’ de la actividad If
+               o   Defina Workbook Path como “Consolidated.xlsx” para crear otro cuaderno de trabajo con el nombre correspondiente en la carpeta del proyecto, si aún no existe.
+
+               o   Defina la entrada de DataTable como partialTable
+
+               o   Esta rama de If creará un cuaderno de trabajo con la primera hoja como base
+
+Busque y añada una actividad Append Range en la rama ‘Else’ de la actividad If
+               o   Defina Workbook Path y la entrada de DataTable con los mismos valores que la actividad Write Range
+
+               o   Esto añadirá el intervalo leído de cada una de las hojas siguientes a Consolidated.xlsx
+
+Para finalizar, añada una actividad Assign debajo de la actividad If
+               o   Asigne index + 1 a index
+
+               o   Esto incrementará el contador del bucle para que las hojas avancen de 1 a 2, a 3 y así sucesivamente…
+
+El flujo de trabajo debería quedar así dentro de la sección Body de la actividad While:
+
+
+B. Cree otra secuencia dentro del diagrama de flujo para filtrar los datos.
+Busque y añada una actividad Excel Application Scope en el nuevo contenedor y seleccione el archivo que se ha creado en el paso anterior, Consolidated.xlsx
+Utilice una actividad Read Range para extraer los datos del cuaderno de trabajo a una Datatable, consolidatedDT.
+Utilice una actividad Filter Data Table. Haga clic en Filter Wizard, añada consolidatedDT como entrada y salida, y seleccione remove rows, porque queremos eliminar las filas donde el valor de ID sea inferior a 10.
+○      Añada una condición con “ID” < 10
+
+
+
+ 
+
+Añada una actividad Output Data Table en el nuevo contenedor y después añada consolidatedDT como Data Table de entrada. Cree una variable, stringDT, para el texto de salida.
+Añada un Message Box y utilice stringDT como contenido.
