@@ -1,0 +1,13 @@
+Publicar un paquete de forma local
+Abra UiPath Studio para crear un proyecto en blanco. Se visualiza la ventana New Blank Project.
+
+Haga clic en el campo Name y escriba un nombre, por ejemplo, “OrchestratorHelloWorld”, y después pulse Create.
+Arrastre y suelte una actividad Message Box en el panel Designer.
+Haga clic en el campo Content y escriba cualquier texto, por ejemplo, “Hello UiPath Orchestrator!”.
+Ejecute el proceso. Cuando aparezca el Message Box, pulse OK para volver a Studio. Esta prueba ha finalizado.
+
+En Setup, haga clic en Publish. Aparece un mensaje. En él se indica que se ha publicado un paquete de forma local (de manera predeterminada en C:\ProgramData\UiPath\Packages).
+
+
+
+Vaya a la carpeta indicada en Windows y ubique el paquete.

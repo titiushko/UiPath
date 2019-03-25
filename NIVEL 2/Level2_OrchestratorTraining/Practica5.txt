@@ -1,0 +1,22 @@
+Otras maneras de ejecutar un proceso
+Inicio manual de un robot desde la interfaz de Assistant
+Abra la interfaz del Robot abriendo System Tray y haciendo clic en el icono UI.
+
+Busque el proceso OrchestratorHelloWorld_funSociety.
+
+Haga clic en el botón Play junto al proceso. Es posible que tenga que descargar el proceso antes de completar este paso.  Observe lo que sucede al pulsar Play. Los dos Message Box son distintos. Esto sucede porque la versión que acaba de cargar en Orchestrator aún no se ha desplegado.
+
+Para corregir esto, vuelva a Orchestrator. En Process, identifique el proceso “Orchestrator Hello World”. Observe el icono de descarga junto a él. Haga clic en el botón View Versions. La versión activa es la que está desplegada. Haga clic en el botón Latest para actualizar la versión del paquete a la más reciente. Vuelva a ejecutar el proceso de forma manual.
+
+Finalizar y detener un proceso
+Ejecute el proceso OrchestratorHelloWorld desde la sección Jobs en Orchestrator, pero no pulse todavía el botón OK. Observe que el proceso que se está ejecutando en este momento tiene un botón Play y el estado Running asociado a él.
+
+Seleccione la casilla que está a la izquierda de este proceso para activar los dos botones: Stop y Kill.
+
+Pulsar Kill es equivalente a detener un proceso desde Studio. Orchestrator se conecta al Robot y envía una orden de parada al proceso.
+
+Pulsar Stop requiere el uso de la actividad Should Stop en Studio durante el desarrollo del proceso. La actividad devuelve un valor booleano que informa si se ha pulsado el botón Stop en Orchestrator en el momento en el que el flujo de control alcanza la actividad Should Stop. Es similar a la función Save Game en un juego de ordenador.
+
+De este modo es posible ordenar al Robot que detenga la ejecución del proceso de forma limpia, cerrando todas las aplicaciones en marcha y los sistemas en los que hayan iniciado sesión los usuarios, incluyendo SAP y la conexión de base de datos.
+
+Para ver cómo funciona, la mejor opción es descargar el ejemplo “Open and Write Notepad” y publicarlo en Orchestrator. Cree un proceso para este ejemplo y ejecútelo en Orchestrator. El proceso debería abrir el Bloc de notas y escribir dos frases continuas en cada línea. Observe los distintos resultados al seleccionar Stop y Kill.

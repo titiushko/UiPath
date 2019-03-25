@@ -1,0 +1,47 @@
+Publicar el primer proceso
+Para que el robot trabaje, todavía es necesario completar algunos pasos:
+1. Crear un Environment
+Un Environment (entorno) es una forma excelente de mantener agrupados los Robots. Un Environment se podría comparar con un equipo de trabajo en el que todos colaboran para alcanzar el mismo objetivo.
+En la página Robots, seleccione la pestaña Environments. Se visualiza la pestaña Environments.
+Haga clic en el botón Add.
+En el campo Name, escriba un título para el Environment. Siga unos buenos principios al asignar los nombres.
+Aviso: Asigne al nuevo Environment un nombre descriptivo, por ejemplo, Finance Robots o HR Robots. Puede también elegir nombres más creativos, como funSociety que es el que se utiliza en esta sesión.
+
+ 
+
+
+
+Haga clic en Create. Se visualiza la ventana Manage Environment.
+Añada el Robot recién preparado seleccionando la casilla de verificación asociada a él y, a continuación, haga clic en UPDATE.
+
+
+
+El Robot ya forma parte de este Environment. Para modificar un Environment, haga clic en Manage. Es posible añadir o eliminar Robots de cualquier Environment, solo tiene que seleccionarlos o anular la selección, respectivamente.
+
+2. Crear un proceso
+En UiPath Studio, abra la pestaña Setup y haga clic en Publish.
+
+Aviso: Ahora que el Robot está conectado con Orchestrator, los procesos se publican automáticamente en la fuente de Orchestrator. Observe que la ubicación de publicación se ha cambiado a https://platform.uipath.com/.
+
+ 
+
+
+
+En Orchestrator, abra la página Processes y haga clic en Add. Se visualiza la ventana Deploy Process.
+Busque Orchestrator Hello World en la sección Package Name.
+Aviso: Utilice la versión de paquete predeterminada.
+
+Seleccione el Environment en el que desea ejecutar el proceso y haga clic en Create. Supongamos que selecciona el Environment “funSociety”.
+
+Haga clic en Create para guardar los ajustes.
+
+
+3. Ejecutar un proceso de forma manual
+IEn Orchestrator, vaya a la página Jobs.
+Haga clic en Start e identifique el proceso que ha creado antes. En este caso, nuestro proceso es OrchestratorHelloWorld_funSociety.
+Seleccione los robots del Environment en los que desee ejecutar el proceso y, a continuación, haga clic en Run.
+Aparece el Message Box “Hello UiPath Orchestrator”.
+ 
+
+¡Enhorabuena! Acaba de ejecutar su primer proceso desde Orchestrator.
+

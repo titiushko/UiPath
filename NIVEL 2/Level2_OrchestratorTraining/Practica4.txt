@@ -1,0 +1,18 @@
+Publicar el mismo paquete muchas vece
+
+Administrar varias versiones del proceso
+
+En UiPath Studio, cambie la cadena de la actividad Message Box de “Hello UiPath Orchestrator!” a “Hi World!”.
+Ejecute el proceso para comprobar que visualiza el mensaje correcto en la pantalla.
+Haga clic en Publish.
+En Orchestrator, abra la página Processes y vaya a Packages. Se visualiza la lista de paquetes.
+Busque el paquete Orchestrator Hello World y haga clic en View Versions. Se visualizan dos versiones del paquete: una activa y otra inactiva. La activa es la que usted inició de forma manual y la inactiva es la que acaba de publicar.
+Retroceda hasta el panel de procesos para comprobar las versiones y seleccionar la versión.
+Seleccione la que desee utilizar.
+Si la instancia del robot no está conectada con Orchestrator, será necesario cargar el paquete de forma manual.
+
+Publique un paquete en Studio. El paquete se envía a una carpeta local.
+Vaya a la sección Packages en Orchestrator y haga clic en Upload. Se visualiza la ventana Upload Package.
+Busque el archivo OrchestratorHelloWorld.nupkg que está guardado en C:\ProgramData\UiPath\Packages de manera predeterminada.
+Haga clic en Upload para añadir el paquete a Orchestrator.
+El proceso contiene ahora todas las versiones en orden cronológico

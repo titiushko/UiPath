@@ -1,0 +1,28 @@
+Registrar su robot en Orchestrator
+Lo que sigue es una acción que se realiza una sola vez por cada robot. No se aplica a los High Density Robots:
+
+Vaya a Robots y haga clic en Add. Se visualiza la página Robot Description.
+Copie el valor de Key.
+De manera adicional, para aprovechar la función High Density Robots, seleccione la casilla Create another.
+Aviso: La opción Create another permite añadir varios robots a la misma máquina si la instancia de Windows lo permite, es decir, si se utiliza Windows Server. Si desea más información sobre High Density Robots, consulte este artículo.
+
+ 
+
+
+
+
+Acceda a la interfaz del robot haciendo clic en el icono UI de la barra de tareas. Seleccione Settings. Se visualiza la ventana Robot Settings.
+Aviso: Si no encuentra el icono, verifique que el servicio esté funcionando. Haga clic aquí para ver las instrucciones.
+
+De manera adicional, permita que el robot realice cambios si se visualiza una ventana que lo solicite. 
+Pegue la clave copiada de Orchestrator en el campo Robot key.
+Copie el valor de Machine Name de la ventana Robot Settings.
+Pegue el nombre de la máquina en Orchestrator, en el campo Machine
+En el campo Name, escriba un nombre descriptivo que permita identificar y manejar correctamente la instancia del robot más tarde.
+Aviso: Se recomienda que siga unos buenos principios al asignar los nombres, para evitar errores de manejo de los robots cuando se añaden varios.
+
+En los campos Username y Password, escriba las credenciales de Windows de su máquina personal.
+Copie la URL de Orchestrator y péguela en la ventana Robot Settings, en el campo correspondiente.
+En la ventana Robot Settings, haga clic en Connect.
+En Orchestrator, haga clic en Provision.
+¡Enhorabuena! El robot debería ahora ser visible en la sección Robots, con el estado Active.

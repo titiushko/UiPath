@@ -1,0 +1,160 @@
+Queues 
+Las Queues (colas) son herramientas muy potentes en Orchestrator. Permiten dividir la tarea entre varios robots, sin tener que mantener un seguimiento con reglas complicadas. Como su nombre sugiere, los elementos de transacción en una Queue se procesan en orden cronológico, con las excepciones mencionadas en el vídeo del tutorial.
+
+Estos elementos dentro de Queues se pueden procesar mediante varios Robots.
+
+Para demostrar cómo se utilizan las Queues, vamos a emular un proceso de negocio simple que calcula la suma de varias transacciones.
+
+La entrada está formada por un archivo Excel con dos columnas: Incomes y Payments. El número exacto de entradas no se conoce.
+
+Se desarrollarán dos proyectos en Studio: uno para rellenar la Queue y otro para procesar los elementos en la Queue.
+
+Lo más importante es que el proceso se puede ejecutar con varios Robots, cada uno procesando un elemento, y así garantizar que el procesamiento de todos los elementos resulte más rápido.
+
+Para crear una Queue, siga los pasos que se indican a continuación
+
+En la sección Queues de Orchestrator, haga clic en el botón Add
+
+Haga clic en el campo Name y escriba un nombre, por ejemplo, “Queue1”.
+
+En la sección Max # of retries, escriba 3.
+
+
+Ahora es necesario crear dos proyectos: uno para añadir elementos a la cola y otro para procesar los elementos. El segundo se ejecutará con varios Robots al mismo tiempo, para agilizar el proceso.
+
+Primero, descargue el archivo Input.xlsx que contiene dos columnas Incomes y Payments. Observe que algunos de los valores son negativos y otros ni siquiera son valores enteros.
+
+Para crear el primer flujo de trabajo, utilizaremos una actividad denominada Add Queue Item.
+
+Abra Studio.
+
+Lea el archivo excel en una Data Table.
+
+Arrastre y suelte una actividad Add Queue Item en el panel Designer y colóquela en una actividad For each row.
+
+El campo QueueName del panel Properties permite enlazar esta actividad con una Queue en Orchestrator. Seleccione el campo y escriba el nombre de la Queue creada durante los pasos anteriores. Verifique que ha escrito el texto entre comillas.
+
+El campo ItemInformation es donde se van a sumar los valores del elemento de transacción. Este proceso funciona de un modo similar al paso de argumentos a un flujo de trabajo al que se ha hecho una llamada. Pulse el botón Ellipsis. Se visualiza una ventana ItemInformation que permite crear un argumento.
+
+Haga clic en Create Argument.
+
+Asigne “Income” al primer argumento.
+Defina el ArgumentType como String.
+
+Rellene el campo Value introduciendo la información de la primera columna de la Data Table
+
+Repita los mismos pasos (5-8) para el segundo campo (dele el nombre “Payment”).
+
+Pulse Run.
+
+Ahora podemos comprobar los valores en Orchestrator.
+
+Busque la Queue creada anteriormente.
+
+Pulse el botón More Actions y seleccione View Transactions. Se visualizan los elementos de transacción creados anteriormente.
+
+Pulse el botón View Details para ver los valores introducidos en Studio.
+
+El segundo proyecto de automatización presenta dos actividades relevantes: Get transaction item y Set transaction status. La primera solicita un elemento de la Queue. La segunda notifica a Orchestrator que se ha procesado un elemento de transacción específico, correctamente o no.
+
+Cree una Sequence en Studio. Póngale el nombre “Process transactions”.
+
+Arrastre y suelte una actividad Get Transaction Item en el panel Designer.
+
+Haga doble clic en la actividad Get Transaction Item para mostrar el panel Properties correspondiente.
+
+Rellene el campo QueueName introduciendo la Queue creada anteriormente.
+
+Haga clic en el campo TransactionItem y pulse Ctrl K para crear una variable de tipo Transaction Item.
+
+Escriba un nombre, por ejemplo, TransactionItem, y pulse Intro.
+
+Ejecute el proyecto.
+
+Vuelva a Orchestrator y observe lo sucedido. El estado del primer elemento de transacción ha cambiado de “New” a “In progress”. Esto ha sucedido porque Orchestrator no ha recibido instrucciones sobre el estado de ese elemento.
+
+Para ello, continúe el desarrollo del proyecto anterior ejecutando los pasos que se indican a continuación.
+
+Recuerde, para acceder al contenido de un elemento de transacción es necesario utilizar la propiedad SpecificContent del elemento de transacción, como en esta expresión: TransactionItem.SpecificContent(“”). A veces, puede ser necesario convertir estos datos a un tipo más adecuado.
+
+Vuelva al proyecto abierto en Studio.
+
+Utilice dos actividades Assign para redistribuir los datos almacenados dentro de la Queue Transaction y guardar estos valores en dos variables de tipo Integer32. No olvide convertir los datos a Integer, utilizando la expresión cint(TransactionItem.SpecificContent(“Income”)).
+
+Utilice ahora estos valores dentro de una expresión para escribir la diferencia entre Income y Payment en el panel Output.
+
+Para garantizar que Orchestrator quede informado sobre este elemento en cola, arrastre una actividad Set Transaction Status en el panel Designer.
+
+Haga doble clic en Set Transaction Status para mostrar el panel Properties correspondiente.
+
+Haga clic en el campo TransactionItem para introducir la variable TransactionItem creada durante los pasos anteriores.
+
+Compruebe que el campo Status tiene el valor “Successful”.
+
+Ejecute el proyecto.
+
+Vuelva a Orchestrator y vaya a la sección Queues.
+
+Identifique la Queue creada anteriormente y pulse el botón More Actions, seguido de View Transactions. Compruebe si el segundo elemento muestra el valor “Successful”.
+
+Vuelva a ejecutar el proyecto en Studio.
+
+Repita el paso 10, pero esta vez compruebe si el siguiente elemento muestra el valor “Successful”.
+
+Si se distribuye en varios Robots, el proyecto procesa cada elemento de la cola por orden.
+
+Para seguir experimentando, ajustemos el proyecto anterior asignando a la actividad Set Transaction Status en Studio el valor Failed en lugar de Successful.
+
+Haga doble clic en la actividad Set Transaction Status para mostrar el panel Properties correspondiente.
+
+Pulse el cuadro desplegable Status y seleccione Failed.
+
+Haga clic en el menú desplegable ErrorType y seleccione Business. Este tipo de excepción se genera si los datos devueltos por la variable TransactionItem no coinciden con el criterio esperado, por eso se muestra automáticamente el valor “Failed”.
+
+Haga clic en el campo Reason y escriba un texto descriptivo que permita al revisor identificar la causa del fallo, por ejemplo, “No es posible identificar el campo”.
+
+Ejecute el proyecto. Se recuperan los datos de Studio.
+
+Vuelva a Orchestrator y abra la página Queues.
+
+Identifique la Queue creada anteriormente y haga clic en el botón More Actions, seguido de View Transactions.
+
+Busque el elemento de transacción que acaba de añadir, que muestra el valor Failed con una excepción de tipo BusinessException.
+
+Haga clic en el botón View Details correspondiente y analice el historial completo de procesamiento en la ventana Details.
+
+El otro tipo de excepción que puede generar es Application Exception. Un elemento de transacción que falla con una Application Exception se coloca de nuevo en la cola para volverlo a intentar más tarde o con otro Robot. De este modo se garantiza que los datos no se pierdan ni se descarten en caso de que a un Robot le falte una aplicación necesaria para ejecutar un proceso.
+
+Para experimentar con este tipo de excepción, siga los pasos siguientes:
+
+1
+
+Repita los pasos 1 y 2 en la sección anterior.
+
+2. Haga clic en el menú desplegable ErrorType y seleccione Application.
+
+3. Haga clic en el campo Reason y escriba un texto descriptivo, por ejemplo, “Falta la aplicación”.
+
+4. Ejecute el proyecto.
+
+5. Vuelva a Orchestrator y abra la página Queues.
+
+6. Identifique la Queue creada anteriormente y haga clic en el botón More Actions, seguido de View Transactions.
+
+7. Busque el elemento de transacción que acaba de añadir, que muestra el valor Failed con una excepción de tipo ApplicationException.
+
+6. Haga clic en el botón View Details correspondiente y analice el historial completo de procesamiento en la ventana Details.
+
+7. Compare las dos ventanas Details de los elementos de transacción que han fallado. Se indica el número de reintentos.
+
+8. Vuelva a Studio para procesar todos los elementos en cola utilizando la expresión TransactionItem is not Nothing. Intente generar errores adecuados cuando sea necesario. Añada los mensajes de error de Set Transaction Status que sean adecuados cuando capture los errores. Compruebe que los errores tengan nombres descriptivos.
+
+Para finalizar, después de que un elemento falla con una Application Exception un determinado número de veces (el valor de Max # of retries definido al crear la Queue) se activan los botones In Review, Retry Items, Mark as Verified y Assign Reviewer.
+
+Los revisores pueden procesar el elemento de forma manual.
+
+Seleccione la opción Retry Items para volver a colocar el elemento en la cola y procesarlo en otro momento.
+Seleccione la opción In Review para indicar a otros usuarios que usted está ya revisando ese elemento.
+Es posible asignar un revisor entre los usuarios de Orchestrator.
+Una vez completada esta tarea, ejecute el primer flujo de trabajo y el segundo varias veces. Observe la rapidez con que se procesan los elementos en cola. El uso de varios Robots agiliza el proceso.
+

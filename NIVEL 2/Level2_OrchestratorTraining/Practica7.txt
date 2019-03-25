@@ -1,0 +1,70 @@
+Assets y credenciales
+
+Los Assets (activos) son fragmentos de información a los que los Robots acceden desde Orchestrator.
+
+Para crear un Asset, vaya a la página Assets y haga clic en el botón Add. Hay 4 tipos de Assets con 2 actividades correspondientes en Studio. Los cuatro tipos de Assets son Integer, String, Boolean y Credential. Es posible definir su nombre y valores.
+
+El tipo Credentials permite crear valores de nombre de usuario y contraseña. Este es el único lugar en que son visibles los caracteres de la contraseña.
+
+Recuperar Assets en Studio
+
+Abra Orchestrator y vaya a la sección Assets.
+
+Pulse el botón Add para crear un Asset.
+
+Rellene el campo Title escribiendo un nombre, por ejemplo, “Message”.
+
+Pulse el cuadro desplegable Type y seleccione Text. Este es un Asset de tipo String.
+
+Pulse en el campo Value y escriba “Hello”, seguido de su propio nombre.
+
+Abra Studio. Arrastre y suelte una actividad Get Asset en el panel Designer.
+
+Rellene el campo AssetName escribiendo el valor del Asset, es decir, “Message”.
+
+Haga clic en el campo Value y pulse Ctrl + K para crear una variable.
+Escriba un nombre descriptivo, por ejemplo, “Text”
+
+Haga clic en la actividad Message Box. Introduzca la variable creada en los pasos 8 y 9 en el campo Value.
+
+Pulse Run.
+
+Observe cómo se recupera el valor de Asset desde Orchestrator y se utiliza en Studio.
+
+Vuelva a Orchestrator y modifique el valor de Asset. Observe la diferencia cuando vuelva a ejecutar el proceso en Studio.
+
+Experimente con los distintos tipos y variables, y observe cómo cambian.
+
+Recuperar credenciales en Studio
+
+La actividad Get credential se utiliza para recuperar datos de forma segura.
+
+Vaya a la sección Assets en Orchestrator y haga clic en el botón Add. Se visualiza la página Add Asset.
+
+Rellene el campo Name con un nombre descriptivo.
+
+Haga clic en el cuadro desplegable Type y seleccione Credentials
+
+Rellene los campos Username y Password con cualquier valor. No es necesario que sean reales.
+
+Abra Studio.
+
+Arrastre y suelte una actividad Get Credential en el panel Designer.
+
+Haga clic en el campo Username y pulse Ctrl + K para crear una variable.
+
+Escriba un nombre descriptivo en el campo SetName y pulse Intro.
+
+Haga clic en el campo Password y pulse Ctrl + K para crear una variable.
+
+Escriba un nombre descriptivo en el campo SetName y pulse Intro.
+
+Arrastre una actividad Message Box en el panel Designer.
+
+Haga clic en el campo Content e introduzca la variable creada en los pasos 8 y 9.
+
+Pulse Run.
+
+Sin embargo, si intenta visualizar la contraseña se producirá un error de coincidencia de tipos. Esto sucede porque la contraseña se almacena en un tipo SecureString, un tipo especial de variable de .NET que permite asegurar los datos dentro del programa.
+
+Para descifrar el texto se necesita la actividad Type Secure Text. Esto funciona de forma similar a una actividad Type Into, pero toma una SecureString de entrada y la descifra solo dentro de la propia actividad. Es una forma excelente de garantizar la seguridad de los datos: tener un solo punto de contacto con el almacén de credenciales.

@@ -1,0 +1,10 @@
+Planificación
+Planificar un proceso es como hacer que Orchestrator pulse Play en el momento que le indique, en vez de hacerlo usted.
+
+Vaya a la página Schedules y cree un plan. Identifique el proceso OrchestratorHelloWorld_funSociety y pruebe alguna de las opciones. Observe el comando Stop After en la pestaña Actions. Como se muestra en el vídeo, es posible ordenar al proceso que se inicie o se detenga bien cada par de minutos a una hora concreta, o bien determinados días.
+
+La sección Execution Target permite seleccionar los robots para ejecutar el proceso. Puede ejecutarlo con todos los robots disponibles, con un robot concreto o con varios robots en ese Environment.
+
+Dedique un rato a probar las distintas planificaciones. Cree varios ejemplos, ejecútelos uno detrás de otro; cree otros paquetes o procesos y preste atención al orden en el que se ejecutan.
+
+La propiedad Stop After incluye las dos mismas opciones: Stop y Kill.
