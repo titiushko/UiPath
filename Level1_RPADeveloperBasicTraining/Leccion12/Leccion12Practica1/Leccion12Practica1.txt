@@ -1,0 +1,129 @@
+Crear un flujo de trabajo que lea el archivo Excel adjunto, reste el contenido de Cash out del contenido de Cash In, y guarde el resultado de cada fila en la columna Difference. Utilizar bloques Try Catch para controlar el flujo en lugar de actividades If.
+
+ 
+
+Si el valor de Cash In no es un número, escribir “Cash In wrong”.
+
+Si Cash Out no es un número, escribir “Cash Out wrong”.
+
+Si ambos son incorrectos, se puede escribir cualquiera de las opciones.
+
+Intentar no utilizar actividades If / Decision y apoyarse solo en el manejo de errores.
+
+
+ITINERARIO
+ 
+
+Como vamos a trabajar con Excel, el primer paso será añadir un Excel Application Scope y leer los datos de la hoja.
+
+ 
+
+●     Busque y añada una actividad Excel Application Scope en el panel principal.
+
+○     Inserte la ruta de acceso del archivo .xlsx descargado en el campo de la propiedad WorkbookPath.
+
+●     Busque y añada una actividad Read Range dentro del contenedor Do de Excel Application Scope.
+
+○     Inserte una variable DataTable con el nombre valuesTable, en el campo de la propiedad DataTable.
+
+○     Verifique que la casilla AddHeaders esté seleccionada.
+
+Como los datos están organizados en una hoja de cálculo, será necesario un bucle para recorrer cada fila.
+
+●     Busque y añada una actividad For Each Row debajo de la actividad Read Range.
+
+○     Defina el recorrido en bucle de DataTable como valuesTable.
+
+Por el momento, el flujo de trabajo debería quedar:
+
+ 
+
+
+
+ 
+
+Vamos a utilizar dos actividades Try Catch para comprobar Cash In y Cash Out, y asignar una variable result que guarde el valor que escribiremos en esa fila.
+
+●     Cree dos variables Int32 con el nombre cashIn y cashOut
+
+●     Cree una variable GenericValue con el nombre result. Como el tipo es GenericValue, puede guardar tanto el resultado de la resta de dos enteros como una cadena que avise de que uno de los valores no era correcto.
+
+●     Busque y añada una actividad Try Catch debajo de la actividad Assign.
+
+       ○     Esto capturará las excepciones en caso de que Cash In no sea un número válido.
+
+●     Busque y añada una actividad Assign en la porción Try de Try Catch.
+
+       ○     Debe asignar cint(row("Cash In"))  a cashIn.
+
+             ■     Esto convierte el valor de la celda de la columna Cash In de la fila actual en un entero y lo asigna a cashIn.
+
+             ■     Si se produce una excepción (si el valor no es un número), será capturada en la sección Catch.
+
+       ○     Haga clic en Add new catch en la parte inferior de la actividad.
+
+             ■     Seleccione SystemException en el desplegable (búsquelo si no está ahí).
+
+             ■     Añada una actividad Assign en el área de la excepción
+
+                     ■     Asigne a To el valor de result.
+
+                    Defina el valor de Value como “Cash In wrong”.
+
+
+
+ 
+
+●     Vuelva a hacer clic en la sección Try: busque y añada otra Try Catch debajo de la actividad Assign.
+
+      ○     En esta probaremos los valores de cash out y los capturaremos de forma distinta.
+
+●     Añada una actividad Assign dentro de la sección Try.
+
+       ○     Debe asignar cint(row("Cash Out"))  a cashOut.
+
+●     Busque y añada otra actividad Assign.
+
+       ○     Si el robot no ha generado ningún error en este punto, tanto Cash In como Cash Out son números válidos.
+
+       ○     Asigne a To el valor de result.
+
+       ○     Defina el valor de Value como cashIn - cashOut.
+
+●     En la sección Catch de esta Try Catch, añada otra Assign.
+
+       ○     Asigne a To el valor de result.
+
+       ○      Defina el valor de Value como “Cash out wrong”.
+
+En el bloque Finally de una actividad Try-Catch están los pasos que el robot realizará con independencia de si se ha ejecutado el bloque Try o el Catch. Este flujo de trabajo es donde el robot actualiza la DataTable con el resultado calculado por las actividades Try-Catch.
+
+●      Haga clic en Add an activity en el bloque Finally de la actividad Try-Catch exterior
+
+Ahora, la actividad For each row completa debería quedar así:
+
+ 
+
+
+
+●      Arrastre una Assign en el bloque Finally
+
+        ○      Asigne a To el valor row(“Difference”)
+
+     ○      Defina el valor de Value como result.ToString
+
+ 
+
+
+
+  
+
+Como toque final, escriba la DataTable procesada de nuevo en el archivo Excel.
+
+●      Arrastre una actividad Write Range detrás del bucle For-Each completo
+
+       ○      Defina la Data table como valuesTable
+
+El flujo de trabajo terminado debería quedar así:
+
+ 

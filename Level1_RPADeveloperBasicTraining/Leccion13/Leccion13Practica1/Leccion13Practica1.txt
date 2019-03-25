@@ -1,0 +1,9 @@
+El flujo de trabajo incluido en los datos adjuntos está diseñado de manera poco óptima. Busque una organización más adecuada para las actividades.
+ 
+
+Observación: no es necesario añadir contenido en las secuencias de prueba.
+
+
+ITINERARIO
+Como el flujo de trabajo contiene decisiones de negocio y varias actividades If anidadas, un diagrama de flujo sería más adecuado que una secuencia.
+Debe crear un diagrama de flujo, sustituir cada actividad If por una Decision y dejar el resto en el mismo sitio.

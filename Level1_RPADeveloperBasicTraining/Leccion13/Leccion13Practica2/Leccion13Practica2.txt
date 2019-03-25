@@ -1,0 +1,42 @@
+El flujo de trabajo incluido en los datos adjuntos incluye el resultado de una sesión de grabación. Reorganícelo para:
+
+ 
+
+Tener partes del proyecto en flujos de trabajo separados a los que poder hacer llamadas.
+Generar 5 nombres en un bucle.
+Escribir los resultados en un solo archivo con el nombre people.xlsx.
+
+
+
+ITINERARIO
+Cambie los nombres de las variables por otros que sean significativos:
+H se puede cambiar, por ejemplo, a Name.
+Dd debería ser PhoneNumber.
+Dd1 estaría mejor con el nombre Email.
+Si el valor de la propiedad ArrayRow de la actividad Add Data Row no se ha actualizado automáticamente, hágalo de forma manual.
+Ponga la parte de grabación en un flujo de trabajo separado:
+
+Esto se hace con más facilidad haciendo clic con el botón derecho en el contenedor Attach Window y seleccionando la opción Extract as Workflow.
+Observe que las variables Name, PhoneNumber y Email se han creado automáticamente como argumentos de tipo Out en el flujo de trabajo recién generado porque este nuevo archivo no recibe ninguna entrada, aunque se supone que devuelve al flujo de trabajo principal los campos de datos extraídos de la web.
+En el flujo de trabajo principal, la secuencia ha sido sustituida por una actividad Invoke Workflow que está dirigida al nuevo flujo de trabajo.
+Haga clic en Import Arguments y, en el campo Value de cada argumento, escriba la variable correspondiente.
+
+
+Cree un bucle en el flujo de trabajo principal y dentro haga una llamada al flujo de trabajo que acaba de crear. Como queremos que se ejecute 5 veces, una elección adecuada sería un bucle While o Do While.
+
+Después de arrastrar la actividad While al flujo de trabajo, utilice el panel Variables para crear una variable Int32 con 1 como valor predeterminado para poder utilizarla como contador.
+Utilice la variable recién creada para definir una Condition en la actividad While, como counter < 6.
+Puede arrastrar la actividad Invoke Workflow que acaba de generar hacia el proyecto.
+La actividad Add Data Row se debería mover al nuevo bucle, porque queremos que se ejecute 5 veces, y colocarse detrás de la actividad Invoke Workflow.
+No olvide incrementar el contador al final del bucle, para poder hacer seguimiento de cuántas filas se han añadido a la Data Table.
+Utilice una actividad Assign y defina el valor de counter a su propio valor anterior +1.
+
+
+No obstante, la actividad Build Data Table solo se debería ejecutar una vez, por eso debemos mantenerla antes del bucle While.
+
+De un modo similar, queremos escribir la tabla resultante con 5 filas en Excel solo una vez, después de recoger todos los datos. Por ello debemos colocar la actividad Write Range (y su contenedor Excel Application Scope) detrás del bucle While.
+
+Además, tenemos que escribir los nombres todas las personas en el mismo archivo, denominado people.xlsx. Para esto, escriba el nombre de este archivo en la propiedad Workbook Path de la actividad Excel Application Scope.
+
+Es preferible guardar el nombre en una variable String para poder cambiarlo fácilmente.
+Como el nombre del archivo no depende del nombre real de la persona y no necesitamos las variables Name, PhoneNumber y Email fuera de la secuencia de grabación, podemos restringir su ámbito a la secuencia interior del bucle While.
