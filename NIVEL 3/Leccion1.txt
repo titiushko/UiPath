@@ -1,0 +1,24 @@
+Imaginemos el siguiente escenario. Tenemos una aplicación de caja que se llama «UiDemo». Necesitamos automatizar el proceso de inserción de transacciones. Los datos de entrada relativos a la transacción están guardados en un archivo Excel. Podría pensarse que este proceso es bastante simple: tenemos que utilizar una actividad Read Range, después un bucle para pasar por cada fila de la DataTable resultante para registrar las transacciones en UiDemo. Sin embargo, el reto que se plantea es que, al ser muy elevado el número de transacciones, es necesario utilizar varios robots para que trabajen al mismo tiempo. Según nos indican el arquitecto de soluciones y el analista de negocios, tenemos que asignar al proceso 5 robots.
+
+Información adicional: el archivo Excel de entrada tiene tres columnas, una para cada uno de los tres campos que es necesario rellenar.
+
+El analista de negocios ha identificado dos excepciones:
+
+Datos de entrada no válidos, los valores no son números.
+
+Importe demasiado grande, no podemos procesar valores de CashIn superiores a 1000 $.
+
+El arquitecto de soluciones ha solicitado que se realicen dos reintentos en las transacciones fallidas. En caso de producirse una excepción de la aplicación, el robot debe recuperarse del fallo y continuar trabajando. Si falla el último reintento, se emite un error. El reintento de una transacción se debe registrar como una advertencia.
+
+Cree una automatización que realice la tarea descrita.
+
+Sugerencias: utilice Orchestrator Queues y REFramework.
+
+Puede descargar UiDemo aquí. Encontrará un archivo Excel de muestra aquí.
+
+Las credenciales para UiDemo son las siguientes.
+
+Nombre de usuario: admin
+
+Contraseña: password
+

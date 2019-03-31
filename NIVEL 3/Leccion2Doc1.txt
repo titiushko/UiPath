@@ -1,0 +1,12 @@
+El documento de diseño de procesos describe los procesos de negocio escogidos para su automatización mediante la tecnología de automatización robótica de procesos (Robotic Process Automation, RPA) de UiPath.
+
+El documento describe la secuencia de pasos realizados como parte del proceso, las condiciones y las reglas del proceso previas a su automatización. Este documento de diseño sirve como documentación base para que los desarrolladores recopilen la información necesaria para la automatización robótica del mismo proceso empresarial.
+
+Objetivos
+El proceso ha sido seleccionado para RPA como parte de la iniciativa de un proyecto más amplio llevado a cabo dentro de ACME Systems Inc., en el Departamento de Finanzas y Contabilidad.
+
+El objetivo de esta automatización de procesos está ligado al caso de negocio del proyecto y se pretende principalmente:
+
+agilizar el procesamiento,
+reducir las tareas redundantes,
+mejorar el rendimiento general y la fiabilidad.

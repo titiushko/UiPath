@@ -1,0 +1,8 @@
+Tenga en cuenta que se trata tan solo de una guía.
+
+Los pasos necesarios no están descritos en toda su extensión.
+
+Asegúrese de que crea un proyecto desde cero y de que utiliza los flujos de trabajo de REFramework.
+
+El Itinerario completo estará disponible en cuanto haya completado la asignación de este capítulo.
+

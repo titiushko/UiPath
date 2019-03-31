@@ -1,0 +1,23 @@
+Presentación del curso
+Bienvenido al Curso avanzado de formación para desarrolladores de sistemas de automatización de procesos robóticos (RPA).
+
+Ahora que ha finalizado la formación básica, el siguiente paso en su programa de formación de RPA es comenzar a trabajar en algunos procesos reales donde podrá aplicar todas las habilidades de RPA recién adquiridas.
+
+Para hacerlo posible, en nuestra academia hemos diseñado un entorno de formación específico para este curso avanzado.
+
+Estos son los antecedentes que hay detrás del proceso que está a punto de comenzar: USTED trabaja para una institución financiera llamada ACME Systems Inc. Se encarga de automatizar la mayoría de los procesos de administración. El Departamento de Negocios de la organización ya ha seleccionado los procesos que se incluirán en esta implementación piloto de RPA y, aunque algunos no sean necesariamente las mejores opciones en términos de tiempo de desarrollo frente a tiempo ahorrado, los negocios son los negocios, por lo que la decisión no puede ser cuestionada.
+
+La principal aplicación que se utilizará en el curso es ACME System 1, nuestra aplicación web interna, que resulta muy útil en muchos proyectos y escenarios.  Las tareas pendientes y la lista de tareas se encuentran bien estructuradas en el apartado de elementos de trabajo (Work Items). Lo ideal es que todos los usuarios procesen todas las entradas disponibles en la lista de elementos de trabajo.  Sin embargo, los elementos de la lista no deberán ejecutarse manualmente. En su lugar, crearemos robots para que se ocupen de ello por nosotros.
+
+Instrucciones
+Para finalizar fácilmente los procesos que hemos diseñado, deberán seguirse las siguientes instrucciones:
+
+Cree una cuenta de usuario en la aplicación web ACME System 1. Entre en http://www.acme-test.com y regístrese hoy mismo.
+Lo primero que debe hacer tras iniciar correctamente la sesión por primera vez es acceder a la sección User Options y hacer clic en el botón Reset Test Data. Se generará un juego de datos de prueba completo para su cuenta de usuario. Este incluye proveedores, facturas, informes, clientes, comprobaciones, cuentas, etc.
+Puede volver a utilizar esta opción en cualquier momento si desea borrar los datos existentes en su cuenta y generar un nuevo juego de datos. Esto resulta especialmente útil en la fase de desarrollo, porque los elementos de trabajo se marcan como completados en cuanto se procesan.
+Por supuesto, puede cambiar la contraseña o recuperarla con la opción Forgot Password.
+La documentación práctica completa para los procesos seleccionados se incluye en la sección User Options. Para acceder a ella, seleccione Download Client y Support
+Requisitos
+Es necesario registrar su cuenta en la plataforma UiPath Academy y en ACME System 1 con las mismas credenciales y dirección de correo electrónico.
+La aplicación web ACME System 1 es muy intuitiva y compatible con cualquier navegador, ya que fue construida con Bootstrap. Solo necesita disponer de acceso a internet para poder abrirla.
+Todos los usuarios deberán instalar UiPath Studio (la versión de prueba o versión comunitaria) antes de iniciar el curso
