@@ -445,11 +445,10 @@
   },
   "libraries": {
     "AvalonEdit/5.0.3": {
-      "sha512": "O7qf3H3SP2VrQujwmzvb3hJ+lw4rNWcZkpMH8T0qb/cA1UccoJIZ9qL/+DM7bws9l8Hxnyk7GUYVFrCSZeH+uA==",
+      "sha512": "L5CgXRniZRxI/tjoBztVgZnvTL1F/qKrRJa+Q88I0Gl78WRNaqdMkuOlkAsOHTauBGZSQNDO0/X+xIpzfzmLdQ==",
       "type": "package",
       "path": "avalonedit/5.0.3",
       "files": [
-        ".signature.p7s",
         "avalonedit.5.0.3.nupkg.sha512",
         "avalonedit.nuspec",
         "lib/Net35/ICSharpCode.AvalonEdit.dll",
@@ -459,11 +458,10 @@
       ]
     },
     "BouncyCastle/1.8.1": {
-      "sha512": "YfrAJKshKEio6Zsz6x+juAOs3l5p+DeHPD8Z6dwy+taXx+ChRE8qrVd4Xj2OwfeccmrK+UXJYs/SgW7lMlCf/w==",
+      "sha512": "nH+P67LavO5EcxjKdBxFfRdfdFhivS3Xp3+0br1KcpCI8DM6ksCWy6YYZjk7XFV+VsHGtkUovwIZ/vmCp42geA==",
       "type": "package",
       "path": "bouncycastle/1.8.1",
       "files": [
-        ".signature.p7s",
         "Readme.txt",
         "bouncycastle.1.8.1.nupkg.sha512",
         "bouncycastle.nuspec",
@@ -578,11 +576,10 @@
       ]
     },
     "CsvHelper/2.13.5": {
-      "sha512": "Y3SQyxU86+V5sZm6X93ko3kToYbiGLcVYW5tvK8rrrk5b1lvw2Nh5NewUJmkw0gMRHF+jANi7pGnb5p+4rVPOw==",
+      "sha512": "fC8DPi/YTcZ8uXFiAeuT9EpsR2TE5cSJ2jg/4tht/Oen6az/djebpYoCQEtI33RfNrSZ533SedOknlWtUTX3fw==",
       "type": "package",
       "path": "csvhelper/2.13.5",
       "files": [
-        ".signature.p7s",
         "csvhelper.2.13.5.nupkg.sha512",
         "csvhelper.nuspec",
         "lib/net20/CsvHelper.dll",
@@ -653,11 +650,10 @@
       ]
     },
     "Microsoft.Exchange.WebServices/2.2.0": {
-      "sha512": "x7E4IO1+hSS1QDywAhwUxWMK9vyS46uvVJ8mCfjj4AqGPImuUhn+FmrLYfgxRSQ367brWQwAwVoi38mv6soiJQ==",
+      "sha512": "NlkaTD0uWtg9VbiWq0VDWMBPzHFknH3tmstrxt0acrT09LBGqATTjRpsGOODz6tUdX7/dehBinxsf75U5Uw/+A==",
       "type": "package",
       "path": "microsoft.exchange.webservices/2.2.0",
       "files": [
-        ".signature.p7s",
         "doc/License Terms.rtf",
         "doc/README.htm",
         "doc/Redist.txt",
@@ -699,10 +695,11 @@
       ]
     },
     "Newtonsoft.Json/10.0.3": {
-      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
+      "sha512": "MoATFm6YJyk5OdqDdxDWfKe5dkY3Cygu0wrpKPH/LbWtMmSuD/3G/JIInt9sIJN7hKQOFYCIb2UjLc2vO5byQQ==",
       "type": "package",
       "path": "newtonsoft.json/10.0.3",
       "files": [
+        ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -726,10 +723,11 @@
       ]
     },
     "NPOI/2.2.1": {
-      "sha512": "esdT/yuODxuYCmqcbQ+6DDpAmPbVcJylgpA4leQZOfUcESbD8vYXEDtCTg4AKlWJIPHcbDnxlAtQxMEVw621Mw==",
+      "sha512": "dXrTJsFVwGe6TKwZJv8DEzd5wWMU/x9p87sGa6OEb3t2H3GCdkaAJImCpT+TkDv/ds6PMJaLS1uD9ql+nSI5fQ==",
       "type": "package",
       "path": "npoi/2.2.1",
       "files": [
+        ".signature.p7s",
         "LICENSE",
         "Read Me.txt",
         "Release Notes.txt",
@@ -752,10 +750,11 @@
       ]
     },
     "SharpZipLib/0.86.0": {
-      "sha512": "5DbS1SlKLMi+WG00Cm0ueYf2oyXJrowETQk8nx96rmdjTuHsA3laPykGV7Sxi0R5Xxfx0Kh/EfacAZ1f6M7y/g==",
+      "sha512": "cKxKObWZo3/0VzNHe6GvtMruF3JityA3mYt+sIpzcXf4aJu2kHWbgJDSW51Ai6jITla+w1CZl63eYnJPz83CtQ==",
       "type": "package",
       "path": "sharpziplib/0.86.0",
       "files": [
+        ".signature.p7s",
         "lib/11/ICSharpCode.SharpZipLib.dll",
         "lib/20/ICSharpCode.SharpZipLib.dll",
         "lib/SL3/SharpZipLib.Silverlight3.dll",
@@ -1012,15 +1011,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tviru\\.nuget\\packages\\": {}
+    "C:\\Users\\tito.miguel.CREATIVA\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "TitoJavierFranciscoMiguelGaldamez",
       "projectName": "TitoJavierFranciscoMiguelGaldamez",
-      "projectPath": "F:\\tito.miguel\\repositorios\\UiPathCertification\\TitoJavierFranciscoMiguelGaldamez\\.local",
-      "packagesPath": "C:\\Users\\tviru\\.nuget\\packages\\",
-      "outputPath": "F:\\tito.miguel\\repositorios\\UiPathCertification\\TitoJavierFranciscoMiguelGaldamez\\.local"
+      "projectPath": "C:\\tito.miguel\\repositorios\\UiPath\\NIVEL FINAL\\Attempt1\\TitoJavierFranciscoMiguelGaldamez\\.local",
+      "packagesPath": "C:\\Users\\tito.miguel.CREATIVA\\.nuget\\packages\\",
+      "outputPath": "C:\\tito.miguel\\repositorios\\UiPath\\NIVEL FINAL\\Attempt1\\TitoJavierFranciscoMiguelGaldamez\\.local"
     },
     "frameworks": {
       "net461": {

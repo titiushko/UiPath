@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>651,2198</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>651,2192</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -60,7 +60,7 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Descripción: abra una página de elemento de trabajo (especificada por In_TranactionItem), obtenga un elemento de trabajo para la página y luego obtenga solo Type = Calculate Client Security Hash AND Status = Open AND WIID &lt; 600000. &amp;#xA; Los datos adquiridos se agregan al archivo que almacena el resultado." DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="611,2118" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Descripción: abra una página de elemento de trabajo (especificada por In_TranactionItem), obtenga un elemento de trabajo para la página y luego obtenga solo Status = &quot;Open&quot;, Type = &quot;WI5&quot; y WIID &lt; 500000.  Los datos adquiridos se agregan al archivo que almacena el resultado." DisplayName="ProcessTransaction" sap:VirtualizedContainerService.HintSize="611,2112" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="WorkItems" />
       <Variable x:TypeArguments="sd:DataTable" Name="CollectedWorkItems" />
@@ -114,28 +114,28 @@
         <InArgument x:TypeArguments="sd:DataTable">[WorkItems.Clone()]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[WorkItems]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="589,783" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[WorkItems]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="589,777" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,634" sap2010:WorkflowViewState.IdRef="Sequence_6">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,629" sap2010:WorkflowViewState.IdRef="Sequence_6">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[row(&quot;Type&quot;).Equals(&quot;Calculate Client Security Hash&quot;) AND row(&quot;Status&quot;).Equals(&quot;Open&quot;) AND CINT(row(&quot;WIID&quot;)) &lt; 500000]" DisplayName="If WorkItem is collect, add to CollectWorkItems" sap:VirtualizedContainerService.HintSize="464,510" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[row(&quot;Status&quot;).Equals(&quot;Open&quot;) AND row(&quot;Type&quot;).Equals(&quot;WI5&quot;) AND CINT(row(&quot;WIID&quot;)) &lt; 500000]" DisplayName="If WorkItem is collect, add to CollectWorkItems" sap:VirtualizedContainerService.HintSize="464,505" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="240.5,360" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="240,357" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <WriteLine DisplayName="Debug: Write Line" sap:VirtualizedContainerService.HintSize="218.5,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Add Item: &quot; + row(&quot;WIID&quot;).ToString + &quot; &quot; + row(&quot;Type&quot;).ToString + &quot; &quot; + row(&quot;Status&quot;).ToString]" />
-                  <InvokeMethod DisplayName="Invoke Method &quot;Import Row&quot;" sap:VirtualizedContainerService.HintSize="218.5,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="ImportRow">
+                  <WriteLine DisplayName="Debug: Write Line" sap:VirtualizedContainerService.HintSize="218,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Add Item: &quot; + row(&quot;WIID&quot;).ToString + &quot; &quot; + row(&quot;Type&quot;).ToString + &quot; &quot; + row(&quot;Status&quot;).ToString]" />
+                  <InvokeMethod DisplayName="Invoke Method &quot;Import Row&quot;" sap:VirtualizedContainerService.HintSize="218,132" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="ImportRow">
                     <InvokeMethod.TargetObject>
                       <InArgument x:TypeArguments="sd:DataTable">[CollectedWorkItems]</InArgument>
                     </InvokeMethod.TargetObject>
