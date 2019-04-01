@@ -439,10 +439,11 @@
   },
   "libraries": {
     "AvalonEdit/5.0.3": {
-      "sha512": "L5CgXRniZRxI/tjoBztVgZnvTL1F/qKrRJa+Q88I0Gl78WRNaqdMkuOlkAsOHTauBGZSQNDO0/X+xIpzfzmLdQ==",
+      "sha512": "O7qf3H3SP2VrQujwmzvb3hJ+lw4rNWcZkpMH8T0qb/cA1UccoJIZ9qL/+DM7bws9l8Hxnyk7GUYVFrCSZeH+uA==",
       "type": "package",
       "path": "avalonedit/5.0.3",
       "files": [
+        ".signature.p7s",
         "avalonedit.5.0.3.nupkg.sha512",
         "avalonedit.nuspec",
         "lib/Net35/ICSharpCode.AvalonEdit.dll",
@@ -452,10 +453,11 @@
       ]
     },
     "BouncyCastle/1.8.1": {
-      "sha512": "nH+P67LavO5EcxjKdBxFfRdfdFhivS3Xp3+0br1KcpCI8DM6ksCWy6YYZjk7XFV+VsHGtkUovwIZ/vmCp42geA==",
+      "sha512": "YfrAJKshKEio6Zsz6x+juAOs3l5p+DeHPD8Z6dwy+taXx+ChRE8qrVd4Xj2OwfeccmrK+UXJYs/SgW7lMlCf/w==",
       "type": "package",
       "path": "bouncycastle/1.8.1",
       "files": [
+        ".signature.p7s",
         "Readme.txt",
         "bouncycastle.1.8.1.nupkg.sha512",
         "bouncycastle.nuspec",
@@ -478,10 +480,11 @@
       ]
     },
     "CsvHelper/2.13.5": {
-      "sha512": "fC8DPi/YTcZ8uXFiAeuT9EpsR2TE5cSJ2jg/4tht/Oen6az/djebpYoCQEtI33RfNrSZ533SedOknlWtUTX3fw==",
+      "sha512": "Y3SQyxU86+V5sZm6X93ko3kToYbiGLcVYW5tvK8rrrk5b1lvw2Nh5NewUJmkw0gMRHF+jANi7pGnb5p+4rVPOw==",
       "type": "package",
       "path": "csvhelper/2.13.5",
       "files": [
+        ".signature.p7s",
         "csvhelper.2.13.5.nupkg.sha512",
         "csvhelper.nuspec",
         "lib/net20/CsvHelper.dll",
@@ -552,10 +555,11 @@
       ]
     },
     "Microsoft.Exchange.WebServices/2.2.0": {
-      "sha512": "NlkaTD0uWtg9VbiWq0VDWMBPzHFknH3tmstrxt0acrT09LBGqATTjRpsGOODz6tUdX7/dehBinxsf75U5Uw/+A==",
+      "sha512": "x7E4IO1+hSS1QDywAhwUxWMK9vyS46uvVJ8mCfjj4AqGPImuUhn+FmrLYfgxRSQ367brWQwAwVoi38mv6soiJQ==",
       "type": "package",
       "path": "microsoft.exchange.webservices/2.2.0",
       "files": [
+        ".signature.p7s",
         "doc/License Terms.rtf",
         "doc/README.htm",
         "doc/Redist.txt",
@@ -597,13 +601,12 @@
       ]
     },
     "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+      "sha512": "znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
       "type": "package",
       "path": "newtonsoft.json/11.0.2",
       "files": [
+        ".signature.p7s",
         "LICENSE.md",
-        "Newtonsoft.Json.11.0.2.nupkg.sha512",
-        "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -621,14 +624,17 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml"
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "NPOI/2.4.1": {
-      "sha512": "85790/CY9z4DCU1KLpcdLSqaqaqmQOenTqXJfcsYK8LIKNAAoTgjT5LYLbORgdwAd63sbaJiCfB1SIn/dAXrJw==",
+      "sha512": "k6KgsGWQpODQcIo7SwTw4j0be6qILTQlk7xKMEPQjp1Bz3+YaUZSvQ/ePG5vcLKnzGDgGGN1TccvYccmrZU53g==",
       "type": "package",
       "path": "npoi/2.4.1",
       "files": [
+        ".signature.p7s",
         "LICENSE",
         "Read Me.txt",
         "lib/NPOI.xml",
@@ -657,10 +663,11 @@
       ]
     },
     "SharpZipLib/1.0.0": {
-      "sha512": "YuYztmY3jEb21F6e5LIPHJjApdtzdCPQ284UzsCKNfkgW71bukFHJES6RbKi+wm053XzFg0LX5/2vj/9gl8F/g==",
+      "sha512": "38egGevtPMQn/6olZZUteKUC7+BD47LdCGKo9Vyj17+HWDwiqPXsyJu55q9WSybhwVKwt0q2FLhiuJjZfQpsHw==",
       "type": "package",
       "path": "sharpziplib/1.0.0",
       "files": [
+        ".signature.p7s",
         "lib/net45/ICSharpCode.SharpZipLib.dll",
         "lib/net45/ICSharpCode.SharpZipLib.xml",
         "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll",
@@ -746,7 +753,7 @@
       ]
     },
     "UiPath.Mail.Activities/1.3.0": {
-      "sha512": "WOCrTHJWhn8MncsdC0K+fbjr9ezI0CynqNCY3MQyjbdTJHlmKvG69kC1/XgdHry0r9hknq2dhB4esgyC5jzmsw==",
+      "sha512": "dvSzZAEs6zFNnXO0X3gyIzYZHNNyWwFoQ3ZGJdDH0Rr90FBsBEsEkcxfqeI2b9NEjzqjtT/qXDA1UZy1JBOU8g==",
       "type": "package",
       "path": "uipath.mail.activities/1.3.0",
       "files": [
@@ -949,15 +956,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tito.miguel.CREATIVA\\.nuget\\packages\\": {}
+    "C:\\Users\\tviru\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Level1_RPADeveloperBasicTraining",
       "projectName": "Level1_RPADeveloperBasicTraining",
-      "projectPath": "C:\\tito.miguel\\repositorios\\UiPath\\NIVEL 1\\Level1_RPADeveloperBasicTraining\\.local",
-      "packagesPath": "C:\\Users\\tito.miguel.CREATIVA\\.nuget\\packages\\",
-      "outputPath": "C:\\tito.miguel\\repositorios\\UiPath\\NIVEL 1\\Level1_RPADeveloperBasicTraining\\.local"
+      "projectPath": "F:\\tito.miguel\\repositorios\\UiPath\\NIVEL 1\\Level1_RPADeveloperBasicTraining\\.local",
+      "packagesPath": "C:\\Users\\tviru\\.nuget\\packages\\",
+      "outputPath": "F:\\tito.miguel\\repositorios\\UiPath\\NIVEL 1\\Level1_RPADeveloperBasicTraining\\.local"
     },
     "frameworks": {
       "net461": {
